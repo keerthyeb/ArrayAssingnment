@@ -12,6 +12,17 @@ let {averageOfNumbers} = lib ;
 let {mapLengthOfNames} = lib ;
 let {countOddNumbers} = lib ;
 let {countEvenNumbers} = lib ;
+let {countNumbersAbove} = lib;
+let {countNumbersBelow} = lib;
+let {reverseArray} = lib;
+let {indexOfNumber} = lib;
+let {extractDigit} = lib;
+let {uniqueOfNumbers} = lib;
+let {isSorted} = lib;
+let { isInDecendingOrder} = lib;
+let {intersectionOf2Arrays} = lib;
+let {uniqueElements} = lib;
+let {unionOf2Array} = lib;
 
 assert.deepEqual(filterOddNumbers([]),[]);
 assert.deepEqual(filterOddNumbers([1]),[ 1 ]);
@@ -89,4 +100,58 @@ assert.deepEqual(countEvenNumbers([1,3]),0);
 assert.deepEqual(countEvenNumbers([2,3]),1);
 assert.deepEqual(countEvenNumbers([22,3,4,5]),2);
 
+assert.deepEqual(countNumbersAbove([2,3,4,5,6],3),3);
+assert.deepEqual(countNumbersAbove([2,3,4,5],10),0);
+assert.deepEqual(countNumbersAbove([11,12,13],10),3);
+assert.deepEqual(countNumbersAbove([],3),0);
+assert.deepEqual(countNumbersAbove([2,3,4,5,6],6),0);
+
+assert.deepEqual(reverseNumbers(_2_4),[ 4, 2 ]);
+assert.deepEqual(_2_4,[2,4]);
+assert.deepEqual(reverseNumbers([1,3]),[ 3, 1 ]);
+assert.deepEqual(reverseNumbers([2,3]),[ 3, 2 ]);
+assert.deepEqual(reverseNumbers([22,3,4,5]),[ 5, 4, 3, 22 ]);
+
+assert.deepEqual(reverseArray(_2_4),[ 4, 2 ]);
+assert.deepEqual(_2_4,[2,4]);
+assert.deepEqual(reverseArray([1,3]),[ 3, 1 ]);
+assert.deepEqual(reverseArray([2,3]),[ 3, 2 ]);
+assert.deepEqual(reverseArray([22,3,4,5]),[ 5, 4, 3, 22 ]);
+
+assert.deepEqual(indexOfNumber([2,3,4,5,6],3),1);
+assert.deepEqual(indexOfNumber([2,3,4,5],10),-1);
+assert.deepEqual(indexOfNumber([11,12,13,10],10),3);
+assert.deepEqual(indexOfNumber([],3),-1);
+assert.deepEqual(indexOfNumber([2,3,4,5,6],6),4);
+
+assert.deepEqual(extractDigit(2345),[2,3,4,5]);
+assert.deepEqual(extractDigit(23455),[2,3,4,5,5]);
+assert.deepEqual(extractDigit(780),[7,8,0]);
+
+assert.equal(isSorted([1,2,3,4,5]),true);
+assert.equal(isSorted([1]),true);
+assert.equal(isSorted([1,2,5,4,3]),false);
+assert.equal(isSorted([5,4,3,2,1]),false);
+
+assert.equal(isInDecendingOrder([1,2,3,4,5]),false);
+assert.equal(isInDecendingOrder([1]),true);
+assert.equal(isInDecendingOrder([1,2,5,4,3]),false);
+assert.equal(isInDecendingOrder([5,4,3,2,1]),true);
+
+assert.deepEqual(intersectionOf2Arrays([1,2,3,4,5],[4,5,6,3,7]),[4,5,3]);
+assert.deepEqual(intersectionOf2Arrays([4,5,6,7],[1,2,3,4]),[4]);
+assert.deepEqual(intersectionOf2Arrays([1,2,3,4],[5,6,7,8]),[]);
+assert.deepEqual(intersectionOf2Arrays([0],[0]),[0]);
+assert.deepEqual(intersectionOf2Arrays(["keerthy","amju","moothu"],["amju"]),["amju"]);
+
+assert.deepEqual(uniqueElements([1,2,3,4,1,2]),[1,2,3,4]);
+assert.deepEqual(uniqueElements(["keer","amju","moothu","amju"]),["keer","amju","moothu"]);
+assert.deepEqual(uniqueElements([]),[]);
+assert.deepEqual(uniqueElements([1,2,3]),[1,2,3]);
+
+assert.deepEqual(unionOf2Array([1,2,3,4,5],[4,5,6,3,7]),[1,2,3,4,5,6,7]);
+assert.deepEqual(unionOf2Array([4,5,6,7],[1,2,3,4]),[4,5,6,7,1,2,3]);
+assert.deepEqual(unionOf2Array([1,2,3,4],[5,6,7,8]),[1,2,3,4,5,6,7,8]);
+assert.deepEqual(unionOf2Array([0],[0]),[0]);
+assert.deepEqual(unionOf2Array(["keerthy","amju"],["moothu","amju"]),["keerthy","amju","moothu"]);
 
