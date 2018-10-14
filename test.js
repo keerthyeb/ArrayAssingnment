@@ -154,4 +154,4 @@ assert.deepEqual(unionOf2Array([4,5,6,7],[1,2,3,4]),[4,5,6,7,1,2,3]);
 assert.deepEqual(unionOf2Array([1,2,3,4],[5,6,7,8]),[1,2,3,4,5,6,7,8]);
 assert.deepEqual(unionOf2Array([0],[0]),[0]);
 assert.deepEqual(unionOf2Array(["keerthy","amju"],["moothu","amju"]),["keerthy","amju","moothu"]);
-
+assert.deepEqual(unionOf2Array([10,10],[10]),[10]);
