@@ -100,6 +100,112 @@ const countEvenNumbers = function(numbers){
   return evenNumberCount;
 }
 
+const countNumbersAbove = function(numbers,threshold){
+  let numberCountAboveThreshold = 0;
+  for(let number of numbers){
+    if(number > threshold){
+      numberCountAboveThreshold++;
+    }
+  }
+  return numberCountAboveThreshold;
+}
+
+const countNumbersBelow = function(numbers,threshold){
+  let numberCountBelowThreshold = 0;
+  for(let number of numbers){
+    if(number < threshold){
+      numberCountBelowThreshold++;
+    }
+  }
+  return numberCountBelowThreshold;
+}
+
+const reverseArray = function(numbers){
+  let arrayLength = numbers.length;
+  let reverseArray = [];
+  for(let index = arrayLength-1;index >= 0 ; index--){
+    reverseArray.push(numbers[index]);
+
+  }
+  return reverseArray;
+}
+
+const indexOfNumber = function(numbers,number){
+  let index = -1;
+  for(let num of numbers){
+    if(number == num ){
+      index = numbers.indexOf(number);
+    }
+  }
+  return index;
+}
+
+const extractDigit = function(number){
+  let extractedArray = [];
+  let index =number
+  while(index>0){
+    extractedArray.unshift(index%10);
+    index = Math.floor(index / 10);
+  }
+  return extractedArray;
+}
+
+const isSorted = function(numbers){
+  let isSorted = true;
+  for(let index = 0; index < numbers.length-1 ; index++){
+    if(numbers[index] > numbers[index+1]){
+      return false;
+    }
+  }
+  return true;
+}
+
+const isInDecendingOrder = function(numbers){
+  let isInDecendingOrder = true;
+  for(let index = 0; index < numbers.length-1 ; index++){
+    if(numbers[index] < numbers[index+1]){
+      return false;
+    }
+  }
+  return true;
+}
+
+const intersectionOf2Arrays =function(set1,set2){
+  let intersectedArray = [];
+  let referenceArray = [];
+  for(let element of set1){
+    referenceArray[element] = element;
+  }
+  for(let element of set2){
+    if(referenceArray[element] == element){
+      intersectedArray.push(element);
+    }
+  }
+  return intersectedArray;
+}
+
+const uniqueElements = function(elements){
+  let uniqueElements = [];
+  for(let item of elements){
+    const shouldAdd =! uniqueElements.includes(item);
+    if(shouldAdd){
+      uniqueElements.push(item);
+    }
+  }
+  return uniqueElements;
+}
+
+const unionOf2Array = function(set1,set2){
+  let union = set1
+  for(let item of set2){
+    const shouldAdd =! union.includes(item);
+    if(shouldAdd){
+      union.push(item);
+    }
+  }
+  return union;
+}
+
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sumOfNumbers = sumOfNumbers;
@@ -112,3 +218,13 @@ exports.mapLengthOfNames = mapLengthOfNames;;
 exports.countEvenNumbers = countEvenNumbers;
 exports.countOddNumbers = countOddNumbers;
 exports.reverseFibonacci = reverseFibonacci;
+exports.countNumbersAbove = countNumbersAbove;
+exports.countNumbersBelow = countNumbersBelow;
+exports.reverseArray = reverseArray;
+exports.indexOfNumber = indexOfNumber;
+exports.extractDigit = extractDigit;
+exports.isSorted = isSorted;
+exports.isInDecendingOrder = isInDecendingOrder;
+exports.intersectionOf2Arrays = intersectionOf2Arrays;
+exports.uniqueElements= uniqueElements;
+exports.unionOf2Array = unionOf2Array;
