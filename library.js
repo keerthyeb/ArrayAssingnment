@@ -203,6 +203,7 @@ const unionOf2Array = function(set1,set2){
       union.push(item);
     }
   }
+  union = uniqueElements(union);
   return union;
 }
 
