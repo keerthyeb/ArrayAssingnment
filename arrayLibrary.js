@@ -120,16 +120,6 @@ const countNumbersBelow = function(numbers,threshold){
   return numberCountBelowThreshold;
 }
 
-const reverseArray = function(numbers){
-  let arrayLength = numbers.length;
-  let reverseArray = [];
-  for(let index = arrayLength-1;index >= 0 ; index--){
-    reverseArray.push(numbers[index]);
-
-  }
-  return reverseArray;
-}
-
 const indexOfNumber = function(numbers,number){
   let index = -1;
   for(let num of numbers){
@@ -195,7 +185,7 @@ const uniqueElements = function(elements){
   return uniqueElements;
 }
 
-const unionOf2Array = function(set1,set2){
+const unionOf = function(set1,set2){
   let union = set1
   for(let item of set2){
     const shouldAdd =! union.includes(item);
@@ -207,14 +197,14 @@ const unionOf2Array = function(set1,set2){
   return union;
 }
 
-const differenceOf2Array = function(set1,set2){
-  let differenceArray = [];
+const differenceOf = function(set1,set2){
+  let differenceOfArray = [];
   for(let item of set1){
     if(!set2.includes(item)){
-      differenceArray.push(item);
+      differenceOfArray.push(item);
     }
   }
-  return differenceArray;
+  return differenceOfArray;
 }
 
 const isSubset = function(set1,set2){
@@ -247,13 +237,28 @@ const rotate = function(numbers,times){
   return rotate;
 }
 
+const partition = function(numbers,limit){
+  let partitionedArray = [];
+  partitionedArray.push([]);
+  partitionedArray.push([]);
+  for(number of numbers){
+    let index = 0;
+    if(number > limit){
+      index = 1;
+    }
+    partitionedArray[index].push(number);
+  }
+  return partitionedArray;
+}
+    
+
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sumOfNumbers = sumOfNumbers;
-exports.reverseNumbers = reverseNumbers;
 exports.greatestNumber = greatestNumber;
 exports.lowestNumber = lowestNumber;
 exports.selectSecondNumbers = selectSecondNumbers;
+exports.reverseNumbers = reverseNumbers;
 exports.averageOfNumbers = averageOfNumbers;
 exports.mapLengthOfNames = mapLengthOfNames;;
 exports.countEvenNumbers = countEvenNumbers;
@@ -261,15 +266,15 @@ exports.countOddNumbers = countOddNumbers;
 exports.reverseFibonacci = reverseFibonacci;
 exports.countNumbersAbove = countNumbersAbove;
 exports.countNumbersBelow = countNumbersBelow;
-exports.reverseArray = reverseArray;
 exports.indexOfNumber = indexOfNumber;
 exports.extractDigit = extractDigit;
 exports.isSorted = isSorted;
 exports.isInDecendingOrder = isInDecendingOrder;
 exports.intersectionOf2Arrays = intersectionOf2Arrays;
 exports.uniqueElements= uniqueElements;
-exports.unionOf2Array = unionOf2Array;
-exports.differenceOf2Array = differenceOf2Array;
+exports.unionOf = unionOf;
+exports.differenceOf = differenceOf;
 exports.isSubset = isSubset;
 exports.zip = zip;
 exports.rotate = rotate;
+exports.partition = partition;
