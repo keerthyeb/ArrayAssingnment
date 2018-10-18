@@ -21,12 +21,12 @@ const sumOfNumbers = function(numbers){
 
 const reverseNumbers = function(numbers){
   let numbersLength = numbers.length;
-  let reverseNumbers = [];
+  let reversedNumbers = [];
   for(let index = numbersLength-1;index >= 0 ; index--){
-    reverseNumbers.push(numbers[index]);
+    reversedNumbers.push(numbers[index]);
 
   }
-  return reverseNumbers;
+  return reversedNumbers;
 }
 
 const selectSecondNumbers = function(numbers){
@@ -53,7 +53,7 @@ const reverseFibonacci = function(limit){
 }
 
 
-const greatestNumber = function(numbers){
+const findGreatestNumber = function(numbers){
   let greatestNumber = 0;
   for(let number of numbers){
     if(greatestNumber < number){
@@ -63,14 +63,14 @@ const greatestNumber = function(numbers){
   return greatestNumber;
 }
 
-const lowestNumber = function(numbers){
-  let lowestNumber = numbers[0];
+const findLowestNumber = function(numbers){
+  let findLowestNumber = numbers[0];
   for(let number of numbers){
-    if(lowestNumber > number){
-      lowestNumber = number;
+    if(findLowestNumber > number){
+      findLowestNumber = number;
     }
   }
-  return lowestNumber;
+  return findLowestNumber;
 }
 
 const averageOfNumbers = function(numbers){
@@ -100,7 +100,7 @@ const countEvenNumbers = function(numbers){
   return evenNumberCount;
 }
 
-const countNumbersAbove = function(numbers,threshold){
+const countNumbersAboveThreshold = function(numbers,threshold){
   let numberCountAboveThreshold = 0;
   for(let number of numbers){
     if(number > threshold){
@@ -110,7 +110,7 @@ const countNumbersAbove = function(numbers,threshold){
   return numberCountAboveThreshold;
 }
 
-const countNumbersBelow = function(numbers,threshold){
+const countNumbersBelowThreshold = function(numbers,threshold){
   let numberCountBelowThreshold = 0;
   for(let number of numbers){
     if(number < threshold){
@@ -120,7 +120,7 @@ const countNumbersBelow = function(numbers,threshold){
   return numberCountBelowThreshold;
 }
 
-const indexOfNumber = function(numbers,number){
+const indexOf = function(numbers,number){
   let index = -1;
   for(let num of numbers){
     if(number == num ){
@@ -160,7 +160,7 @@ const isInDecendingOrder = function(numbers){
   return true;
 }
 
-const intersectionOf2Arrays =function(set1,set2){
+const intersectionOf =function(set1,set2){
   let intersectedArray = [];
   let referenceArray = [];
   for(let element of set1){
@@ -174,15 +174,15 @@ const intersectionOf2Arrays =function(set1,set2){
   return intersectedArray;
 }
 
-const uniqueElements = function(elements){
-  let uniqueElements = [];
+const uniqueOf = function(elements){
+  let uniqueOf = [];
   for(let item of elements){
-    const shouldAdd =! uniqueElements.includes(item);
+    const shouldAdd =! uniqueOf.includes(item);
     if(shouldAdd){
-      uniqueElements.push(item);
+      uniqueOf.push(item);
     }
   }
-  return uniqueElements;
+  return uniqueOf;
 }
 
 const unionOf = function(set1,set2){
@@ -193,7 +193,7 @@ const unionOf = function(set1,set2){
       union.push(item);
     }
   }
-  union = uniqueElements(union);
+  union = uniqueOf(union);
   return union;
 }
 
@@ -255,8 +255,8 @@ const partition = function(numbers,limit){
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sumOfNumbers = sumOfNumbers;
-exports.greatestNumber = greatestNumber;
-exports.lowestNumber = lowestNumber;
+exports.findGreatestNumber = findGreatestNumber;
+exports.findLowestNumber = findLowestNumber;
 exports.selectSecondNumbers = selectSecondNumbers;
 exports.reverseNumbers = reverseNumbers;
 exports.averageOfNumbers = averageOfNumbers;
@@ -264,14 +264,14 @@ exports.mapLengthOfNames = mapLengthOfNames;;
 exports.countEvenNumbers = countEvenNumbers;
 exports.countOddNumbers = countOddNumbers;
 exports.reverseFibonacci = reverseFibonacci;
-exports.countNumbersAbove = countNumbersAbove;
-exports.countNumbersBelow = countNumbersBelow;
-exports.indexOfNumber = indexOfNumber;
+exports.countNumbersAboveThreshold = countNumbersAboveThreshold;
+exports.countNumbersBelowThreshold = countNumbersBelowThreshold;
+exports.indexOf = indexOf;
 exports.extractDigit = extractDigit;
 exports.isSorted = isSorted;
 exports.isInDecendingOrder = isInDecendingOrder;
-exports.intersectionOf2Arrays = intersectionOf2Arrays;
-exports.uniqueElements= uniqueElements;
+exports.intersectionOf = intersectionOf;
+exports.uniqueOf= uniqueOf;
 exports.unionOf = unionOf;
 exports.differenceOf = differenceOf;
 exports.isSubset = isSubset;

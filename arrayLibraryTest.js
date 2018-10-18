@@ -50,20 +50,20 @@ assert.deepEqual(reverseFibonacci(1),[ 1 ]);
 assert.deepEqual(reverseFibonacci(2),[ 1, 1 ]);
 
 
-let {greatestNumber} = lib;  
-assert.deepEqual(greatestNumber([22,3,4,5]),22);
-assert.deepEqual(greatestNumber([0]),0);
-assert.deepEqual(greatestNumber([1]),1);
-assert.deepEqual(greatestNumber([0,1]),1);
-assert.deepEqual(greatestNumber([33,44,23,1]),44);
+let {findGreatestNumber} = lib;  
+assert.deepEqual(findGreatestNumber([22,3,4,5]),22);
+assert.deepEqual(findGreatestNumber([0]),0);
+assert.deepEqual(findGreatestNumber([1]),1);
+assert.deepEqual(findGreatestNumber([0,1]),1);
+assert.deepEqual(findGreatestNumber([33,44,23,1]),44);
 
 
-let {lowestNumber} = lib;
-assert.deepEqual(lowestNumber([22,3,4,5]),3);
-assert.deepEqual(lowestNumber([0]),0);
-assert.deepEqual(lowestNumber([1]),1);
-assert.deepEqual(lowestNumber([0,1]),0);
-assert.deepEqual(lowestNumber([33,44,23,1]),1);
+let {findLowestNumber} = lib;
+assert.deepEqual(findLowestNumber([22,3,4,5]),3);
+assert.deepEqual(findLowestNumber([0]),0);
+assert.deepEqual(findLowestNumber([1]),1);
+assert.deepEqual(findLowestNumber([0,1]),0);
+assert.deepEqual(findLowestNumber([33,44,23,1]),1);
 
 
 let {averageOfNumbers} = lib;
@@ -101,20 +101,29 @@ assert.deepEqual(countEvenNumbers([2,3]),1);
 assert.deepEqual(countEvenNumbers([22,3,4,5]),2);
 
 
-let {countNumbersAbove} = lib;
-assert.deepEqual(countNumbersAbove([2,3,4,5,6],3),3);
-assert.deepEqual(countNumbersAbove([2,3,4,5],10),0);
-assert.deepEqual(countNumbersAbove([11,12,13],10),3);
-assert.deepEqual(countNumbersAbove([],3),0);
-assert.deepEqual(countNumbersAbove([2,3,4,5,6],6),0);
+let {countNumbersAboveThreshold} = lib;
+assert.deepEqual(countNumbersAboveThreshold([2,3,4,5,6],3),3);
+assert.deepEqual(countNumbersAboveThreshold([2,3,4,5],10),0);
+assert.deepEqual(countNumbersAboveThreshold([11,12,13],10),3);
+assert.deepEqual(countNumbersAboveThreshold([],3),0);
+assert.deepEqual(countNumbersAboveThreshold([2,3,4,5,6],6),0);
 
 
-let {indexOfNumber} = lib;
-assert.deepEqual(indexOfNumber([2,3,4,5,6],3),1);
-assert.deepEqual(indexOfNumber([2,3,4,5],10),-1);
-assert.deepEqual(indexOfNumber([11,12,13,10],10),3);
-assert.deepEqual(indexOfNumber([],3),-1);
-assert.deepEqual(indexOfNumber([2,3,4,5,6],6),4);
+let {countNumbersBelowThreshold} = lib;
+assert.deepEqual(countNumbersBelowThreshold([2,3,4,5,6],3),1);
+assert.deepEqual(countNumbersBelowThreshold([2,3,4,5],10),4);
+assert.deepEqual(countNumbersBelowThreshold([11,12,13],10),0);
+assert.deepEqual(countNumbersBelowThreshold([],3),0);
+assert.deepEqual(countNumbersBelowThreshold([2,3,4,5,6],6),4);
+
+
+
+let {indexOf} = lib;
+assert.deepEqual(indexOf([2,3,4,5,6],3),1);
+assert.deepEqual(indexOf([2,3,4,5],10),-1);
+assert.deepEqual(indexOf([11,12,13,10],10),3);
+assert.deepEqual(indexOf([],3),-1);
+assert.deepEqual(indexOf([2,3,4,5,6],6),4);
 
 
 let {extractDigit} = lib;
@@ -137,19 +146,19 @@ assert.equal(isInDecendingOrder([1,2,5,4,3]),false);
 assert.equal(isInDecendingOrder([5,4,3,2,1]),true);
 
 
-let {intersectionOf2Arrays} = lib;
-assert.deepEqual(intersectionOf2Arrays([1,2,3,4,5],[4,5,6,3,7]),[4,5,3]);
-assert.deepEqual(intersectionOf2Arrays([4,5,6,7],[1,2,3,4]),[4]);
-assert.deepEqual(intersectionOf2Arrays([1,2,3,4],[5,6,7,8]),[]);
-assert.deepEqual(intersectionOf2Arrays([0],[0]),[0]);
-assert.deepEqual(intersectionOf2Arrays(["keerthy","amju","moothu"],["amju"]),["amju"]);
+let {intersectionOf} = lib;
+assert.deepEqual(intersectionOf([1,2,3,4,5],[4,5,6,3,7]),[4,5,3]);
+assert.deepEqual(intersectionOf([4,5,6,7],[1,2,3,4]),[4]);
+assert.deepEqual(intersectionOf([1,2,3,4],[5,6,7,8]),[]);
+assert.deepEqual(intersectionOf([0],[0]),[0]);
+assert.deepEqual(intersectionOf(["keerthy","amju","moothu"],["amju"]),["amju"]);
 
 
-let {uniqueElements} = lib;
-assert.deepEqual(uniqueElements([1,2,3,4,1,2]),[1,2,3,4]);
-assert.deepEqual(uniqueElements(["keer","amju","moothu","amju"]),["keer","amju","moothu"]);
-assert.deepEqual(uniqueElements([]),[]);
-assert.deepEqual(uniqueElements([1,2,3]),[1,2,3]);
+let {uniqueOf} = lib;
+assert.deepEqual(uniqueOf([1,2,3,4,1,2]),[1,2,3,4]);
+assert.deepEqual(uniqueOf(["keer","amju","moothu","amju"]),["keer","amju","moothu"]);
+assert.deepEqual(uniqueOf([]),[]);
+assert.deepEqual(uniqueOf([1,2,3]),[1,2,3]);
 
 
 let {unionOf}= lib;
