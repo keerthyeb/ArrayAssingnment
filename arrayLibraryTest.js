@@ -196,7 +196,6 @@ let {rotate} = lib;
 assert.deepEqual(rotate([1,2,3,4,5],2),[3,4,5,1,2]);
 assert.deepEqual(rotate([1,2,3,4,5],4),[5,1,2,3,4]);
 
-
 let {partition} = lib;
 assert.deepEqual(partition([1,2,7,4,9,10,5],5),[[1,2,4,5],[7,9,10]]);
 assert.deepEqual(partition([2,3,4,5,6],6),[[2,3,4,5,6],[]]);

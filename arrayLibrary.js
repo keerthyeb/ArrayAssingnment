@@ -229,12 +229,13 @@ const zip = function(set1,set2){
   return zip;
 }
 
-const rotate = function(numbers,times){
-  let rotate = numbers;
-  for(let index = 0 ;index < times; index++){
-    rotate.push(rotate.shift());
+
+const rotate = function(numbers,stringIndex){
+  let rotatedNumbers = numbers;
+  for(index = 0 ; index < stringIndex ; index++){
+    rotatedNumbers.push(rotatedNumbers.shift());
   }
-  return rotate;
+  return rotatedNumbers;
 }
 
 const partition = function(numbers,limit){
@@ -250,7 +251,7 @@ const partition = function(numbers,limit){
   }
   return partitionedArray;
 }
-    
+
 
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
