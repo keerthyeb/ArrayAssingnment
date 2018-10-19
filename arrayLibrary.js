@@ -1,7 +1,7 @@
 const {partitionEvenOdd} = require("../arrayAssignment/listOfOddAndEvenNumbers.js");
 
 const filterOddNumbers = function(numbers){
-  let oddAndEvenNumbers = partitionEvenOdd(numbers);
+   let oddAndEvenNumbers = partitionEvenOdd(numbers);
   return oddAndEvenNumbers["oddNumbers"];
 }
 
@@ -38,17 +38,16 @@ const selectSecondNumbers = function(numbers){
 }
 
 const reverseFibonacci = function(limit){
-  let fibonacci = [];
+  let reversedFibonacci = [];
   let nextTerm = 1;
   let currentTerm = 1;
   let previousTerm = 0;
   for(index = 0; index < limit ; index++){
-    fibonacci.push(nextTerm); //fibonacci.unshift(nextTerm)
+    reversedFibonacci.unshift(nextTerm)
     nextTerm = currentTerm + previousTerm;
     previousTerm = currentTerm;
     currentTerm = nextTerm;
   }
-  let reversedFibonacci = reverseNumbers(fibonacci);
   return reversedFibonacci;
 }
 
@@ -186,14 +185,7 @@ const uniqueOf = function(elements){
 }
 
 const unionOf = function(set1,set2){
-  let union = set1
-  for(let item of set2){
-    const shouldAdd =! union.includes(item);
-    if(shouldAdd){
-      union.push(item);
-    }
-  }
-  union = uniqueOf(union);
+  let union = uniqueOf(set1.concat(set2));
   return union;
 }
 
