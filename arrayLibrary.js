@@ -27,13 +27,8 @@ const sumOfNumbers = function(numbers){
 }
 
 const reverseNumbers = function(numbers){
-  let numbersLength = numbers.length;
-  let reversedNumbers = [];
-  for(let index = numbersLength-1;index >= 0 ; index--){
-    reversedNumbers.push(numbers[index]);
-
-  }
-  return reversedNumbers;
+  return numbers.reduce(
+    function(array,number){array.unshift(number);return array},[])
 }
 
 const selectSecondNumbers = function(numbers){
