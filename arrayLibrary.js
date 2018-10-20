@@ -75,10 +75,7 @@ const findLowestNumber = function(numbers){
 }
 
 const averageOfNumbers = function(numbers){
-  let sum = sumOfNumbers(numbers);
-  let numbersLength = numbers.length;
-  let averageOfNumbers = Math.round(sum/numbersLength);
-  return averageOfNumbers;
+  return Math.round(numbers.reduce(sum,0)/numbers.length);
 }
 
 const mapLengthOfNames = function(names){
