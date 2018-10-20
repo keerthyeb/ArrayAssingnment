@@ -1,13 +1,21 @@
-const {partitionEvenOdd} = require("../arrayAssignment/listOfOddAndEvenNumbers.js");
+const isEven = function(number){
+  return number%2==0;
+}
+
+const complimentry = function(functionToBeComplimented){
+  return function(args){
+    return !functionToBeComplimented(args);
+  }
+}
+
+const isOdd = complimentry(isEven);
 
 const filterOddNumbers = function(numbers){
-   let oddAndEvenNumbers = partitionEvenOdd(numbers);
-  return oddAndEvenNumbers["oddNumbers"];
+  return  numbers.filter(isOdd);
 }
 
 const filterEvenNumbers = function(numbers){
-  let oddAndEvenNumbers = partitionEvenOdd(numbers);
-  return oddAndEvenNumbers["evenNumbers"];
+  return numbers.filter(isEven);
 }
 
 const sumOfNumbers = function(numbers){
