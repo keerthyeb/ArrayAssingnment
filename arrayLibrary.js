@@ -2,7 +2,7 @@ const isEven = function(number){
   return number%2==0;
 }
 
-const complimentry = function(functionToBeComplimented){
+const complement = function(functionToBeComplimented){
   return function(args){
     return !functionToBeComplimented(args);
   }
@@ -24,7 +24,7 @@ const minOf = function(a,b){
   return b;
 }
 
-const isOdd = complimentry(isEven);
+const isOdd = complement(isEven);
 
 const filterOddNumbers = function(numbers){
   return  numbers.filter(isOdd);
