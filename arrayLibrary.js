@@ -12,6 +12,18 @@ const sum = function(a,b){
   return a+b;
 }
 
+const maxOf = function(a,b){
+  if(a>b)
+    return a;
+  return b;
+}
+
+const minOf = function(a,b){
+  if(a<b)
+    return a;
+  return b;
+}
+
 const isOdd = complimentry(isEven);
 
 const filterOddNumbers = function(numbers){
@@ -55,23 +67,11 @@ const reverseFibonacci = function(limit){
 
 
 const findGreatestNumber = function(numbers){
-  let greatestNumber = 0;
-  for(let number of numbers){
-    if(greatestNumber < number){
-      greatestNumber = number;
-    }
-  }
-  return greatestNumber;
+  return numbers.reduce(maxOf,0);
 }
 
 const findLowestNumber = function(numbers){
-  let findLowestNumber = numbers[0];
-  for(let number of numbers){
-    if(findLowestNumber > number){
-      findLowestNumber = number;
-    }
-  }
-  return findLowestNumber;
+  return numbers.reduce(minOf);
 }
 
 const averageOfNumbers = function(numbers){
