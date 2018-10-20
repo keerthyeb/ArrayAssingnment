@@ -79,11 +79,7 @@ const averageOfNumbers = function(numbers){
 }
 
 const mapLengthOfNames = function(names){
-  let lengthOfNAmes = []
-  for(let name of names){
-    lengthOfNAmes.push(name.length);
-  }
-  return lengthOfNAmes;
+  return names.map(function(item){return item.length})
 }
 
 const countOddNumbers = function(numbers){
