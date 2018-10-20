@@ -2,9 +2,9 @@ const isEven = function(number){
   return number%2==0;
 }
 
-const complement = function(functionToBeComplimented){
+const complement = function(functionToBeComplemented){
   return function(args){
-    return !functionToBeComplimented(args);
+    return !functionToBeComplemented(args);
   }
 }
 
