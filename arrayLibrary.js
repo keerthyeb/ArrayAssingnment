@@ -83,15 +83,11 @@ const mapLengthOfNames = function(names){
 }
 
 const countOddNumbers = function(numbers){
-  let oddNumbers = filterOddNumbers(numbers);
-  let oddNumberCount = oddNumbers.length;
-  return oddNumberCount;
+  return numbers.filter(isOdd).length;
 }
 
 const countEvenNumbers = function(numbers){
-  let evenNumbers = filterEvenNumbers(numbers);
-  let evenNumberCount = evenNumbers.length;
-  return evenNumberCount;
+  return numbers.filter(isEven).length;
 }
 
 const countNumbersAboveThreshold = function(numbers,threshold){
