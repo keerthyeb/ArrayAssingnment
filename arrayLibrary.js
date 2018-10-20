@@ -8,6 +8,10 @@ const complimentry = function(functionToBeComplimented){
   }
 }
 
+const sum = function(a,b){
+  return a+b;
+}
+
 const isOdd = complimentry(isEven);
 
 const filterOddNumbers = function(numbers){
@@ -19,12 +23,7 @@ const filterEvenNumbers = function(numbers){
 }
 
 const sumOfNumbers = function(numbers){
-  let numbersLength = numbers.length;
-  let sum = 0;
-  for(let number of numbers){
-    sum += number;
-  }
-  return sum;
+  return numbers.reduce(sum,0);
 }
 
 const reverseNumbers = function(numbers){
