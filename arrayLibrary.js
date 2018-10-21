@@ -131,14 +131,8 @@ const countNumbersBelowThreshold = function(numbers,threshold){
   return numberCountBelowThreshold;
 }
 
-const indexOf = function(numbers,number){
-  let index = -1;
-  for(let num of numbers){
-    if(number == num ){
-      index = numbers.indexOf(number);
-    }
-  }
-  return index;
+const indexOf = function(numbers, value) {
+  return numbers.indexOf(value);
 }
 
 const extractDigit = function(number){
