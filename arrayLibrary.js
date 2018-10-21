@@ -1,27 +1,48 @@
+/*....  Function to check whether a number is even or not ....*/
 const isEven = function(number){
   return number%2==0;
 }
 
+/*....  Function to compliment a function which accept only one argument ....*/
 const complement = function(functionToBeComplemented){
   return function(args){
     return !functionToBeComplemented(args);
   }
 }
 
+/*....  Function to compliment maxOf() function  ....*/
+const complementMaxOf = function(functionToBeComplemented){
+  return function(num1,num2){
+    return !functionToBeComplemented(num1,num2);
+  }
+}
+
+/*....  Function find sum of 2 numbers  ....*/
 const sum = function(a,b){
   return a+b;
 }
 
-const maxOf = function(a,b){
-  if(a>b)
-    return a;
-  return b;
+/*....  Function to check whether the first number is greater or not ....*/
+const isGreater = function(a,b){
+  return a>b;
 }
 
-const minOf = function(a,b){
-  if(a<b)
-    return a;
-  return b;
+/* Function to call the isGreater and returns the greatest number*/
+const getIsGreater = function(num1,num2,funcName) {
+  if(funcName(num1,num2)){
+    return num1;
+  }
+  return num2;
+}
+
+/*.... Function to find the maximum of 2 numbers ....*/
+const maxOf = function(num1,num2){
+  return   getIsGreater(num1,num2,isGreater);
+}
+
+/*.... Function to find the minimum of 2 number ....*/
+const minOf = function(num1,num2){
+  return getIsGreater(num1,num2,complementMaxOf(isGreater));
 }
 
 const isOdd = complement(isEven);
