@@ -1,37 +1,71 @@
 const assert = require("assert");
-let lib = require("./arrayLibrary.js");
+const lib = require("./arrayLibrary.js");
+const { logTestCase } = require('./testLibrary.js');
+
+const getFunctionSeperator = function(){
+  let functionSeperator = new Array(92).fill("-").join("");
+  return functionSeperator;
+}
+
+console.log("No | Test                          |input                | expectedOutput | actualOutput   |");
+console.log(getFunctionSeperator());
 
 let {filterOddNumbers} = lib;
-assert.deepEqual(filterOddNumbers([]),[]);
-assert.deepEqual(filterOddNumbers([1]),[ 1 ]);
-assert.deepEqual(filterOddNumbers([2]),[]);
-assert.deepEqual(filterOddNumbers([2,4]),[]);
-assert.deepEqual(filterOddNumbers([1,3]),[ 1, 3 ]);
-assert.deepEqual(filterOddNumbers([2,3]),[ 3 ]);
-assert.deepEqual(filterOddNumbers([22,3,4,5]),[ 3, 5 ]);
+const testFilterOddNumbers = function(input, expectedOutput) {
+  let actualOutput = filterOddNumbers(input);
+  let message = 'filterOddNumbers';
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log(logTestCase({input, expectedOutput, actualOutput, message}));
+}
 
+testFilterOddNumbers([-1], [-1]);
+testFilterOddNumbers([0],[]);
+testFilterOddNumbers([1],[ 1 ]);
+testFilterOddNumbers([2],[]);
+testFilterOddNumbers([2,4],[]);
+testFilterOddNumbers([1,3],[ 1, 3 ]);
+testFilterOddNumbers([2,3],[ 3 ]);
+testFilterOddNumbers([22,3,4,5],[ 3, 5 ]);
+
+console.log(getFunctionSeperator());
 
 let {filterEvenNumbers} = lib;
-assert.deepEqual(filterEvenNumbers([]),[]);
-assert.deepEqual(filterEvenNumbers([1]),[]);
-assert.deepEqual(filterEvenNumbers([2]),[ 2 ]);
-assert.deepEqual(filterEvenNumbers([2,4]),[ 2, 4 ]);
-assert.deepEqual(filterEvenNumbers([1,3]),[]);
-assert.deepEqual(filterEvenNumbers([2,3]),[ 2 ]);
-assert.deepEqual(filterEvenNumbers([22,3,4,5]),[ 22, 4 ]);
+const testFilterEvenNumbers = function(input, expectedOutput) {
+  let actualOutput = filterEvenNumbers(input);
+  let message = 'filterEvenNumbers';
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log(logTestCase({input, expectedOutput, actualOutput, message}));
+
+}
+
+testFilterEvenNumbers([],[]);
+testFilterEvenNumbers([1],[]);
+testFilterEvenNumbers([2],[ 2 ]);
+testFilterEvenNumbers([2,4],[ 2, 4 ]);
+testFilterEvenNumbers([1,3],[]);
+testFilterEvenNumbers([2,3],[ 2 ]);
+testFilterEvenNumbers([22,3,4,5],[ 22, 4 ]);
 
 
 let {sumOfNumbers} = lib;
-assert.deepEqual(sumOfNumbers([]),0);
-assert.deepEqual(sumOfNumbers([0]),0);
-assert.deepEqual(sumOfNumbers([3]),3);
-assert.deepEqual(sumOfNumbers([3,4,2,1]),10);
+const testSumOfNumbers = function(input, expectedOutput) {
+  let actualOutput = sumOfNumbers(input);
+  let message = 'sumOfNumbers';
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log(logTestCase({input, expectedOutput, actualOutput, message}));
+}
+
+console.log(getFunctionSeperator());
+
+testSumOfNumbers([],0);
+testSumOfNumbers([0],0);
+testSumOfNumbers([3],3);
+testSumOfNumbers([3,4,2,1],10);
 
 
 let {reverseNumbers} = lib;  
-let _2_4 = [2,4]; 
-assert.deepEqual(reverseNumbers(_2_4),[ 4, 2 ]);
-assert.deepEqual(_2_4,[2,4]);
+assert.deepEqual(reverseNumbers([2,4]),[ 4, 2 ]);
+assert.deepEqual(reverseNumbers([4,2]),[2,4]);
 assert.deepEqual(reverseNumbers([1,3]),[ 3, 1 ]);
 assert.deepEqual(reverseNumbers([2,3]),[ 3, 2 ]);
 assert.deepEqual(reverseNumbers([22,3,4,5]),[ 5, 4, 3, 22 ]);
