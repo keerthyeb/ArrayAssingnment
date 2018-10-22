@@ -123,60 +123,114 @@ console.log(getFunctionSeperator());
 
 /*--------------------------------------------------------------------------------------------------*/
 
+const testFindGreatestNumber = function(input, expectedOutput) {
+  let actualOutput = findGreatestNumber(input);
+  let message = 'findGreatestNumber';
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log(logTestCase({input, expectedOutput, actualOutput, message}));
+}
+
 let {findGreatestNumber} = lib;  
-assert.deepEqual(findGreatestNumber([22,3,4,5]),22);
-assert.deepEqual(findGreatestNumber([0]),0);
-assert.deepEqual(findGreatestNumber([1]),1);
-assert.deepEqual(findGreatestNumber([0,1]),1);
-assert.deepEqual(findGreatestNumber([33,44,23,1]),44);
+testFindGreatestNumber([22,3,4,5],22);
+testFindGreatestNumber([0],0);
+testFindGreatestNumber([1],1);
+testFindGreatestNumber([0,1],1);
+testFindGreatestNumber([33,44,23,1],44);
+
+console.log(getFunctionSeperator());
 
 /*--------------------------------------------------------------------------------------------------*/
+
+const testFindLowestNumber = function(input, expectedOutput) {
+  let actualOutput = findLowestNumber(input);
+  let message = 'findLowestNumber';
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log(logTestCase({input, expectedOutput, actualOutput, message}));
+}
 
 let {findLowestNumber} = lib;
-assert.deepEqual(findLowestNumber([22,3,4,5]),3);
-assert.deepEqual(findLowestNumber([0]),0);
-assert.deepEqual(findLowestNumber([1]),1);
-assert.deepEqual(findLowestNumber([0,1]),0);
-assert.deepEqual(findLowestNumber([33,44,23,1]),1);
+testFindLowestNumber([22,3,4,5],3);
+testFindLowestNumber([0],0);
+testFindLowestNumber([1],1);
+testFindLowestNumber([0,1],0);
+testFindLowestNumber([33,44,23,1],1);
+
+console.log(getFunctionSeperator());
 
 /*--------------------------------------------------------------------------------------------------*/
+
+const testAverageOfNumbers = function(input, expectedOutput) {
+  let actualOutput = averageOfNumbers(input);
+  let message = 'averageOfNumbers';
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log(logTestCase({input, expectedOutput, actualOutput, message}));
+}
 
 let {averageOfNumbers} = lib;
-assert.equal(averageOfNumbers([0]),0);
-assert.equal(averageOfNumbers([1,2,3,4]),3);
-assert.equal(averageOfNumbers([3,5]),4);
-assert.equal(averageOfNumbers([1]),1);
-assert.equal(averageOfNumbers([2,4]),3);
+testAverageOfNumbers([0],0);
+testAverageOfNumbers([1,2,3,4],3);
+testAverageOfNumbers([3,5],4);
+testAverageOfNumbers([1],1);
+testAverageOfNumbers([2,4],3);
+
+console.log(getFunctionSeperator());
 
 /*--------------------------------------------------------------------------------------------------*/
+const testMapLengthOfNames = function(input, expectedOutput) {
+  let actualOutput = mapLengthOfNames(input);
+  let message = 'mapLengthOfNames';
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log(logTestCase({input, expectedOutput, actualOutput, message}));
+}
 
 let {mapLengthOfNames} = lib;
-assert.deepEqual(mapLengthOfNames(["keerthy"]),[7]); 
-assert.deepEqual(mapLengthOfNames(["keerthy","pannapur","deepika"]),[7,8,7]);
-assert.deepEqual(mapLengthOfNames(["amju","moothu"]),[4,6]);
-assert.deepEqual(mapLengthOfNames([]),[]);
+testMapLengthOfNames(["keerthy"],[7]); 
+testMapLengthOfNames(["keerthy","pannapur"],[7,8]);
+testMapLengthOfNames(["amju","moothu"],[4,6]);
+testMapLengthOfNames([],[]);
+
+console.log(getFunctionSeperator());
 
 /*--------------------------------------------------------------------------------------------------*/
+
+const testCountOddNumbers = function(input, expectedOutput) {
+  let actualOutput = countOddNumbers(input);
+  let message = 'countOddNumbers';
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log(logTestCase({input, expectedOutput, actualOutput, message}));
+}
+
 
 let {countOddNumbers} = lib;
-assert.deepEqual(countOddNumbers([]),0);
-assert.deepEqual(countOddNumbers([1]),1);
-assert.deepEqual(countOddNumbers([2]),0);
-assert.deepEqual(countOddNumbers([2,4]),0);
-assert.deepEqual(countOddNumbers([1,3]),2);
-assert.deepEqual(countOddNumbers([2,3]),1);
-assert.deepEqual(countOddNumbers([22,3,4,5]),2);
+testCountOddNumbers([],0);
+testCountOddNumbers([1],1);
+testCountOddNumbers([2],0);
+testCountOddNumbers([2,4],0);
+testCountOddNumbers([1,3],2);
+testCountOddNumbers([2,3],1);
+testCountOddNumbers([22,3,4,5],2);
+
+console.log(getFunctionSeperator());
 
 /*--------------------------------------------------------------------------------------------------*/
 
+const testCountEvenNumbers = function(input, expectedOutput) {
+  let actualOutput = countEvenNumbers(input);
+  let message = 'countEvenNumbers';
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log(logTestCase({input, expectedOutput, actualOutput, message}));
+}
+
 let {countEvenNumbers} = lib;
-assert.deepEqual(countEvenNumbers([]),0);
-assert.deepEqual(countEvenNumbers([1]),0);
-assert.deepEqual(countEvenNumbers([2]),1);
-assert.deepEqual(countEvenNumbers([2,4]),2);
-assert.deepEqual(countEvenNumbers([1,3]),0);
-assert.deepEqual(countEvenNumbers([2,3]),1);
-assert.deepEqual(countEvenNumbers([22,3,4,5]),2);
+testCountEvenNumbers([],0);
+testCountEvenNumbers([1],0);
+testCountEvenNumbers([2],1);
+testCountEvenNumbers([2,4],2);
+testCountEvenNumbers([1,3],0);
+testCountEvenNumbers([2,3],1);
+testCountEvenNumbers([22,3,4,5],2);
+
+console.log(getFunctionSeperator());
 
 /*--------------------------------------------------------------------------------------------------*/
 
@@ -208,31 +262,59 @@ assert.deepEqual(indexOf([2,3,4,5,6],6),4);
 
 /*--------------------------------------------------------------------------------------------------*/
 
+const testExtractDigit = function(input, expectedOutput) {
+  let actualOutput = extractDigit(input);
+  let message = 'extractDigit';
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log(logTestCase({input, expectedOutput, actualOutput, message}));
+}
+
 let {extractDigit} = lib;
-assert.deepEqual(extractDigit(2345),[2,3,4,5]);
-assert.deepEqual(extractDigit(23455),[2,3,4,5,5]);
-assert.deepEqual(extractDigit(780),[7,8,0]);
+testExtractDigit(2345,[2,3,4,5]);
+testExtractDigit(23455,[2,3,4,5,5]);
+testExtractDigit(780,[7,8,0]);
+
+console.log(getFunctionSeperator());
 
 /*--------------------------------------------------------------------------------------------------*/
+
+const testIsSorted = function(input, expectedOutput) {
+  let actualOutput = isSorted(input);
+  let message = 'isSorted';
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log(logTestCase({input, expectedOutput, actualOutput, message}));
+}
+
 
 let {isSorted} = lib;
-assert.equal(isSorted([1,2,3,4,5]),true);
-assert.equal(isSorted([1]),true);
-assert.equal(isSorted([1,2,5,4,3]),false);
-assert.equal(isSorted([5,4,3,2,1]),false);
+testIsSorted([1,2,3,4,5],true);
+testIsSorted([1],true);
+testIsSorted([1,2,5,4,3],false);
+testIsSorted([5,4,3,2,1],false);
+
+console.log(getFunctionSeperator());
 
 /*--------------------------------------------------------------------------------------------------*/
 
+const testIsInDecendingOrder = function(input, expectedOutput) {
+  let actualOutput = isInDecendingOrder(input);
+  let message = 'isInDecendingOrder';
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log(logTestCase({input, expectedOutput, actualOutput, message}));
+}
+
 let {isInDecendingOrder} = lib;
-assert.equal(isInDecendingOrder([1,2,3,4,5]),false);
-assert.equal(isInDecendingOrder([1]),true);
-assert.equal(isInDecendingOrder([1,2,5,4,3]),false);
-assert.equal(isInDecendingOrder([5,4,3,2,1]),true);
+testIsInDecendingOrder([1,2,3,4,5],false);
+testIsInDecendingOrder([1],true);
+testIsInDecendingOrder([1,2,5,4,3],false);
+testIsInDecendingOrder([5,4,3,2,1],true);
+
+console.log(getFunctionSeperator());
 
 /*--------------------------------------------------------------------------------------------------*/
 
 let {intersectionOf} = lib;
-assert.deepEqual(intersectionOf([1,2,3,4,5],[4,5,6,3,7]),[4,5,3]);
+assert.deepEqual(intersectionOf([1,2,3,4,5],[4,5,6,3,7]),[3,4,5]);
 assert.deepEqual(intersectionOf([4,5,6,7],[1,2,3,4]),[4]);
 assert.deepEqual(intersectionOf([1,2,3,4],[5,6,7,8]),[]);
 assert.deepEqual(intersectionOf([0],[0]),[0]);
@@ -240,11 +322,20 @@ assert.deepEqual(intersectionOf(["keerthy","amju","moothu"],["amju"]),["amju"]);
 
 /*--------------------------------------------------------------------------------------------------*/
 
+const testUniqueOf = function(input, expectedOutput) {
+  let actualOutput = uniqueOf(input);
+  let message = 'uniqueOf';
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log(logTestCase({input, expectedOutput, actualOutput, message}));
+}
+
 let {uniqueOf} = lib;
-assert.deepEqual(uniqueOf([1,2,3,4,1,2]),[1,2,3,4]);
-assert.deepEqual(uniqueOf(["keer","amju","moothu","amju"]),["keer","amju","moothu"]);
-assert.deepEqual(uniqueOf([]),[]);
-assert.deepEqual(uniqueOf([1,2,3]),[1,2,3]);
+testUniqueOf([1,2,3,4,1,2],[1,2,3,4]);
+testUniqueOf(["amju","mothu","amju"],["amju","mothu"]);
+testUniqueOf([],[]);
+testUniqueOf([1,2,3],[1,2,3]);
+
+console.log(getFunctionSeperator());
 
 /*--------------------------------------------------------------------------------------------------*/
 
