@@ -1,33 +1,21 @@
-/*....  Function to check whether a number is even or not ....*/
 const isEven = function(number){
   return number%2==0;
 }
 
-/*....  Function to compliment a function which accept only one argument ....*/
 const complement = function(functionToBeComplemented){
-  return function(args){
-    return !functionToBeComplemented(args);
+  return function(arg1,arg2){
+    return !functionToBeComplemented(arg1,arg2);
   }
 }
 
-/*....  Function to compliment maxOf() function  ....*/
-const complementMaxOf = function(functionToBeComplemented){
-  return function(num1,num2){
-    return !functionToBeComplemented(num1,num2);
-  }
-}
-
-/*....  Function find sum of 2 numbers  ....*/
 const sum = function(a,b){
   return a+b;
 }
 
-/*....  Function to check whether the first number is greater or not ....*/
 const isGreater = function(a,b){
   return a>b;
 }
 
-/* Function to call the isGreater and returns the greatest number*/
 const getIsGreater = function(num1,num2,funcName) {
   if(funcName(num1,num2)){
     return num1;
@@ -35,14 +23,12 @@ const getIsGreater = function(num1,num2,funcName) {
   return num2;
 }
 
-/*.... Function to find the maximum of 2 numbers ....*/
 const maxOf = function(num1,num2){
   return   getIsGreater(num1,num2,isGreater);
 }
 
-/*.... Function to find the minimum of 2 number ....*/
 const minOf = function(num1,num2){
-  return getIsGreater(num1,num2,complementMaxOf(isGreater));
+  return getIsGreater(num1,num2,complement(isGreater));
 }
 
 const isOdd = complement(isEven);
@@ -112,23 +98,15 @@ const countEvenNumbers = function(numbers){
 }
 
 const countNumbersAboveThreshold = function(numbers,threshold){
-  let numberCountAboveThreshold = 0;
-  for(let number of numbers){
-    if(number > threshold){
-      numberCountAboveThreshold++;
-    }
-  }
-  return numberCountAboveThreshold;
+  return numbers.filter(function(number){
+    return number>threshold;
+  }).length;
 }
 
 const countNumbersBelowThreshold = function(numbers,threshold){
-  let numberCountBelowThreshold = 0;
-  for(let number of numbers){
-    if(number < threshold){
-      numberCountBelowThreshold++;
-    }
-  }
-  return numberCountBelowThreshold;
+  return numbers.filter(function(number){
+    return number < threshold;
+  }).length;
 }
 
 const indexOf = function(numbers, value) {
@@ -166,29 +144,24 @@ const isInDecendingOrder = function(numbers){
 }
 
 const intersectionOf =function(set1,set2){
-  let intersectedArray = [];
-  let referenceArray = [];
-  for(let element of set1){
-    referenceArray[element] = element;
+  let isElementExist = function(array,number){
+    if(set2.includes(number))
+      return array.concat(number);
+    return array;
   }
-  for(let element of set2){
-    if(referenceArray[element] == element){
-      intersectedArray.push(element);
-    }
-  }
-  return intersectedArray;
+  return set1.reduce(isElementExist,[]);
 }
 
+
 const uniqueOf = function(elements){
-  let uniqueOf = [];
-  for(let item of elements){
-    const shouldAdd =! uniqueOf.includes(item);
-    if(shouldAdd){
-      uniqueOf.push(item);
-    }
+  let isElementExist = function(array,number){
+    if(array.includes(number))
+      return array;
+    return array.concat(number);
   }
-  return uniqueOf;
+  return  elements.reduce(isElementExist,[]);
 }
+
 
 const unionOf = function(set1,set2){
   let union = uniqueOf(set1.concat(set2));
@@ -196,23 +169,18 @@ const unionOf = function(set1,set2){
 }
 
 const differenceOf = function(set1,set2){
-  let differenceOfArray = [];
-  for(let item of set1){
-    if(!set2.includes(item)){
-      differenceOfArray.push(item);
-    }
+  let isElementExist = function(array,number){
+    if(set2.includes(number))
+      return array;
+    return array.concat(number);
   }
-  return differenceOfArray;
+  return set1.reduce(isElementExist,[]);
 }
 
 const isSubset = function(set1,set2){
-  let isSubset = true;
-  for(let item of set2){
-    if(!set1.includes(item)){
-      return false;
-    }
-  }
-  return true;
+  return set2.every(function(element){
+    return set1.includes(element);
+  });
 }
 
 const zip = function(set1,set2){

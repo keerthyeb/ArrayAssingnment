@@ -133,7 +133,7 @@ const testFindGreatestNumber = function(input, expectedOutput) {
 let {findGreatestNumber} = lib;  
 testFindGreatestNumber([22,3,4,5],22);
 testFindGreatestNumber([0],0);
-testFindGreatestNumber([1],1);
+testFindGreatestNumber([1,1],1);
 testFindGreatestNumber([0,1],1);
 testFindGreatestNumber([33,44,23,1],44);
 
@@ -151,7 +151,7 @@ const testFindLowestNumber = function(input, expectedOutput) {
 let {findLowestNumber} = lib;
 testFindLowestNumber([22,3,4,5],3);
 testFindLowestNumber([0],0);
-testFindLowestNumber([1],1);
+testFindLowestNumber([1,1],1);
 testFindLowestNumber([0,1],0);
 testFindLowestNumber([33,44,23,1],1);
 
