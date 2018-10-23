@@ -16,15 +16,15 @@ const isGreater = function(a,b){
   return a>b;
 }
 
-const comparator = function(num1,num2,funcName) {
-  if(funcName(num1,num2)){
+const comparator = function(num1,num2,funcRef) {
+  if(funcRef(num1,num2)){
     return num1;
   }
   return num2;
 }
 
 const maxOf = function(num1,num2){
-  return   comparator(num1,num2,isGreater);
+  return comparator(num1,num2,isGreater);
 }
 
 const minOf = function(num1,num2){
@@ -53,14 +53,15 @@ const reverseNumbers = function(numbers){
   return numbers.reduce(insertAtBegin,[])
 }
 
-const selectSecondNumbers = function(numbers){
-  const getAlternateNumbers = function(alternateNumbers,element){
-    if(alternateNumbers.index%2 ==0){
-      alternateNumbers.numbers.push(element);
-    }
-    alternateNumbers.index++;
-    return alternateNumbers;
+const getAlternateNumbers = function(alternateNumbers,element){
+  if(alternateNumbers.index%2 ==0){
+    alternateNumbers.numbers.push(element);
   }
+  alternateNumbers.index++;
+  return alternateNumbers;
+}
+
+const selectSecondNumbers = function(numbers){
   return  numbers.reduce(getAlternateNumbers,{index:0,numbers:[]}).numbers;
 }
 
@@ -107,10 +108,15 @@ const countEvenNumbers = function(numbers){
   return numbers.filter(isEven).length;
 }
 
+const numberCompariosn = function(threshold){
+  return function(number){
+    return number > threshold;
+  }
+}
+
 const countNumbersAboveThreshold = function(numbers,threshold){
-  return numbers.filter(function(number){
-    return number>threshold;
-  }).length;
+  let isGreater = numberCompariosn(threshold);
+  return numbers.filter(isGreater).length;
 }
 
 const countNumbersBelowThreshold = function(numbers,threshold){
@@ -231,28 +237,28 @@ const partition = function(numbers,limit){
 }
 
 module.exports = {filterOddNumbers,
-                 filterEvenNumbers,
-                 sumOfNumbers,
-                 findGreatestNumber,
-                 findLowestNumber,
-                 selectSecondNumbers,
-                 reverseNumbers,
-                 averageOfNumbers,
-                 findLengthOfNames,
-                 countEvenNumbers,
-                 countOddNumbers,
-                 reverseFibonacci,
-                 countNumbersAboveThreshold,
-                 countNumbersBelowThreshold,
-                 indexOf,
-                 extractDigit,
-                 isSorted,
-                 isInDecendingOrder,
-                 intersectionOf,
-                 uniqueOf,
-                 unionOf,
-                 differenceOf,
-                 isSubset,
-                 zip,
-                 rotate,
-                 partition}
+  filterEvenNumbers,
+  sumOfNumbers,
+  findGreatestNumber,
+  findLowestNumber,
+  selectSecondNumbers,
+  reverseNumbers,
+  averageOfNumbers,
+  findLengthOfNames,
+  countEvenNumbers,
+  countOddNumbers,
+  reverseFibonacci,
+  countNumbersAboveThreshold,
+  countNumbersBelowThreshold,
+  indexOf,
+  extractDigit,
+  isSorted,
+  isInDecendingOrder,
+  intersectionOf,
+  uniqueOf,
+  unionOf,
+  differenceOf,
+  isSubset,
+  zip,
+  rotate,
+  partition}
