@@ -214,29 +214,21 @@ const rotate = function(numbers,stringIndex){
   return rotatedNumbers;
 }
 
-const filterElement  = function(numbers,number){
-  let index = 1;
-  if(numbers.funcRef(number)){
-    index = 0;
-  }
-  numbers.array[index].push(number);
-  return numbers;
-}
-
-const aboveValue = function(value){
-  return function(rangeValue){
-    if(value >= rangeValue){
-      return true;
+const filterElement  = function(limit){
+  return function(partitionedArray,number){
+    let index = 1;
+    if(number <= limit){
+      index = 0;
     }
-    return false;
+    partitionedArray[index].push(number);
+    return partitionedArray;
   }
 }
 
 const partition = function(numbers,limit){
-  let aboveLimit = aboveValue(limit);
-  return numbers.reduce(filterElement,{funcRef : aboveLimit, array :[[],[]]}).array;
+  let filterElements = filterElement(limit);
+  return numbers.reduce(filterElements,[[],[]]);
 }
-
 
 module.exports = {filterOddNumbers,
                  filterEvenNumbers,
