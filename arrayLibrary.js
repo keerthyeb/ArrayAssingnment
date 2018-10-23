@@ -238,29 +238,29 @@ const partition = function(numbers,limit){
 }
 
 
-exports.filterOddNumbers = filterOddNumbers;
-exports.filterEvenNumbers = filterEvenNumbers;
-exports.sumOfNumbers = sumOfNumbers;
-exports.findGreatestNumber = findGreatestNumber;
-exports.findLowestNumber = findLowestNumber;
-exports.selectSecondNumbers = selectSecondNumbers;
-exports.reverseNumbers = reverseNumbers;
-exports.averageOfNumbers = averageOfNumbers;
-exports.findLengthOfNames = findLengthOfNames;;
-exports.countEvenNumbers = countEvenNumbers;
-exports.countOddNumbers = countOddNumbers;
-exports.reverseFibonacci = reverseFibonacci;
-exports.countNumbersAboveThreshold = countNumbersAboveThreshold;
-exports.countNumbersBelowThreshold = countNumbersBelowThreshold;
-exports.indexOf = indexOf;
-exports.extractDigit = extractDigit;
-exports.isSorted = isSorted;
-exports.isInDecendingOrder = isInDecendingOrder;
-exports.intersectionOf = intersectionOf;
-exports.uniqueOf= uniqueOf;
-exports.unionOf = unionOf;
-exports.differenceOf = differenceOf;
-exports.isSubset = isSubset;
-exports.zip = zip;
-exports.rotate = rotate;
-exports.partition = partition;
+module.exports = {filterOddNumbers,
+                 filterEvenNumbers,
+                 sumOfNumbers,
+                 findGreatestNumber,
+                 findLowestNumber,
+                 selectSecondNumbers,
+                 reverseNumbers,
+                 averageOfNumbers,
+                 findLengthOfNames,
+                 countEvenNumbers,
+                 countOddNumbers,
+                 reverseFibonacci,
+                 countNumbersAboveThreshold,
+                 countNumbersBelowThreshold,
+                 indexOf,
+                 extractDigit,
+                 isSorted,
+                 isInDecendingOrder,
+                 intersectionOf,
+                 uniqueOf,
+                 unionOf,
+                 differenceOf,
+                 isSubset,
+                 zip,
+                 rotate,
+                 partition}
