@@ -16,7 +16,7 @@ const isGreater = function(a,b){
   return a>b;
 }
 
-const getIsGreater = function(num1,num2,funcName) {
+const comparator = function(num1,num2,funcName) {
   if(funcName(num1,num2)){
     return num1;
   }
@@ -24,11 +24,11 @@ const getIsGreater = function(num1,num2,funcName) {
 }
 
 const maxOf = function(num1,num2){
-  return   getIsGreater(num1,num2,isGreater);
+  return   comparator(num1,num2,isGreater);
 }
 
 const minOf = function(num1,num2){
-  return getIsGreater(num1,num2,complement(isGreater));
+  return comparator(num1,num2,complement(isGreater));
 }
 
 const isOdd = complement(isEven);
@@ -46,16 +46,22 @@ const sumOfNumbers = function(numbers){
 }
 
 const reverseNumbers = function(numbers){
-  return numbers.reduce(
-    function(array,number){array.unshift(number);return array},[])
+  const insertAtBegin = function(storeArray,number){
+    storeArray.unshift(number);
+    return storeArray;
+  }
+  return numbers.reduce(insertAtBegin,[])
 }
 
 const selectSecondNumbers = function(numbers){
-  let secondNumbers = [];
-  for(let index = 0; index < numbers.length ; index += 2 ){
-    secondNumbers.push(numbers[index]);
+  const getAlternateNumbers = function(alternateNumbers,element){
+    if(alternateNumbers.index%2 ==0){
+      alternateNumbers.numbers.push(element);
+    }
+    alternateNumbers.index++;
+    return alternateNumbers;
   }
-  return secondNumbers;
+  return  numbers.reduce(getAlternateNumbers,{index:0,numbers:[]}).numbers;
 }
 
 const reverseFibonacci = function(limit){
@@ -85,8 +91,12 @@ const averageOfNumbers = function(numbers){
   return Math.round(numbers.reduce(sum,0)/numbers.length);
 }
 
-const mapLengthOfNames = function(names){
-  return names.map(function(item){return item.length})
+const getLength = function(element){
+  return element.length;
+}
+
+const findLengthOfNames = function(names){
+  return names.map(getLength);
 }
 
 const countOddNumbers = function(numbers){
@@ -204,18 +214,27 @@ const rotate = function(numbers,stringIndex){
   return rotatedNumbers;
 }
 
-const partition = function(numbers,limit){
-  let partitionedArray = [];
-  partitionedArray.push([]);
-  partitionedArray.push([]);
-  for(number of numbers){
-    let index = 0;
-    if(number > limit){
-      index = 1;
-    }
-    partitionedArray[index].push(number);
+const filterElement  = function(numbers,number){
+  let index = 1;
+  if(numbers.funcRef(number)){
+    index = 0;
   }
-  return partitionedArray;
+  numbers.array[index].push(number);
+  return numbers;
+}
+
+const aboveValue = function(value){
+  return function(rangeValue){
+    if(value >= rangeValue){
+      return true;
+    }
+    return false;
+  }
+}
+
+const partition = function(numbers,limit){
+  let aboveLimit = aboveValue(limit);
+  return numbers.reduce(filterElement,{funcRef : aboveLimit, array :[[],[]]}).array;
 }
 
 
@@ -227,7 +246,7 @@ exports.findLowestNumber = findLowestNumber;
 exports.selectSecondNumbers = selectSecondNumbers;
 exports.reverseNumbers = reverseNumbers;
 exports.averageOfNumbers = averageOfNumbers;
-exports.mapLengthOfNames = mapLengthOfNames;;
+exports.findLengthOfNames = findLengthOfNames;;
 exports.countEvenNumbers = countEvenNumbers;
 exports.countOddNumbers = countOddNumbers;
 exports.reverseFibonacci = reverseFibonacci;
