@@ -120,9 +120,8 @@ const countNumbersAboveThreshold = function(numbers,threshold){
 }
 
 const countNumbersBelowThreshold = function(numbers,threshold){
-  return numbers.filter(function(number){
-    return number < threshold;
-  }).length;
+  let isLower = complement(numberCompariosn(threshold));
+  return numbers.filter(isLower).length;
 }
 
 const indexOf = function(numbers, value) {

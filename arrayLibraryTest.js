@@ -177,13 +177,13 @@ console.log(getFunctionSeperator());
 
 /*--------------------------------------------------------------------------------------------------*/
 const testMapLengthOfNames = function(input, expectedOutput) {
-  let actualOutput = mapLengthOfNames(input);
-  let message = 'mapLengthOfNames';
+  let actualOutput = findLengthOfNames(input);
+  let message = 'findLengthOfNames';
   assert.deepEqual(actualOutput,expectedOutput);
   console.log(logTestCase({input, expectedOutput, actualOutput, message}));
 }
 
-let {mapLengthOfNames} = lib;
+let {findLengthOfNames} = lib;
 testMapLengthOfNames(["keerthy"],[7]); 
 testMapLengthOfNames(["keerthy","pannapur"],[7,8]);
 testMapLengthOfNames(["amju","moothu"],[4,6]);
@@ -244,11 +244,11 @@ assert.deepEqual(countNumbersAboveThreshold([2,3,4,5,6],6),0);
 /*--------------------------------------------------------------------------------------------------*/
 
 let {countNumbersBelowThreshold} = lib;
-assert.deepEqual(countNumbersBelowThreshold([2,3,4,5,6],3),1);
-assert.deepEqual(countNumbersBelowThreshold([2,3,4,5],10),4);
-assert.deepEqual(countNumbersBelowThreshold([11,12,13],10),0);
-assert.deepEqual(countNumbersBelowThreshold([],3),0);
-assert.deepEqual(countNumbersBelowThreshold([2,3,4,5,6],6),4);
+ assert.deepEqual(countNumbersBelowThreshold([2,4,5,6],3),1);
+ assert.deepEqual(countNumbersBelowThreshold([2,3,5],10),3);
+ assert.deepEqual(countNumbersBelowThreshold([11,12,13],10),0);
+ assert.deepEqual(countNumbersBelowThreshold([],3),0);
+ assert.deepEqual(countNumbersBelowThreshold([2,3,5],6),3);
 
 /*--------------------------------------------------------------------------------------------------*/
 
